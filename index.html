@@ -6,7 +6,56 @@
     </head>
     <body>
         <script>
+            const humanChoice = " ";
+            const robotChoice = 0 ;
+            let humanResult = 0 ;
+            let robotResult = 0 ;
+           function getComputerChoice(robotChoice){
+            robotChoice = Math.floor(Math.random()*3) ;
+           /*if (robotChoice == 0){
+                robotChoice = 'Rock';    
+            } else if (robotChoice == 1){
+                robotChoice = 'Paper';                
+            } else if (robotChoice == 2){
+                robotChoice = 'Scissors';                
+            }*/
+            robotResult = robotChoice;           
+        }
+        function getHumanChoice(humanChoice){
+            if (humanChoice.charAt(0) == 'R' , 'r'){
+                humanChoice = Number(0);
+            } else if (humanChoice.charAt(0) == 'P' , 'p'){
+                humanChoice = Number(1);
+            } else if (humanChoice.charAt(0) == 'S' , 's'){
+                humanChoice = Number(2);
+            }
+            humanResult = humanChoice;
+            console.log(humanChoice);
+        }
+        let result = " "
+        function results(result){
+            if (humanResult == (robotResult + 1)){
+                result = 'Humans Rule';
+            } else if (robotResult == (humanResult + 1)){
+                result = 'Robots Rule';
+            } else if (humanResult == (robotResult + 2)){
+                result = 'Humans Rule';
+            } else if (robotResult == (humanResult + 2)){
+                result = 'Robots Rule';
+        }
+            alert(result);
+            console.log(humanResult);
+            console.log(robotResult);
+    }
+        function theDecider(){
+            getComputerChoice();
+            getHumanChoice();
+            results();
             
+        }
         </script>
+
+        <button onclick="results()">Who wins?</button>
+
     </body>
 </html>
