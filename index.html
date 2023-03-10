@@ -25,6 +25,7 @@
             robotResult = robotChoice;           
         }
         function getHumanChoice(humanChoice){
+            humanChoice = window.prompt("Rock, Paper or Scissors?");
             humanChoice = humanChoice.toLowerCase();
             firstLetter = humanChoice.charAt(0);
             if (firstLetter == "r" ){
@@ -41,34 +42,48 @@
             
         }
         let result = " "
+        let scoreHuman = 0;
+        let scoreRobot = 0;
+        let scoreBoard = "";
         function results(result){
             if ((humanResult + 1) === robotResult){
-                result = 'Robots Rule';
+                result = 'DOWN WITH HUMANITY';
                 console.log(result);
-                console.log(humanResult);
-                console.log(robotResult);
+                scoreRobot = scoreRobot + 1;
             } else if ((robotResult +1) === humanResult){
-                result = 'Humans Rule';
+                result = 'The machines will never take us!';
                 console.log(result);
-                console.log(humanResult);
-                console.log(robotResult);
+                scoreHuman = scoreHuman + 1;
             } else if ((humanResult + 2) === robotResult){
-                result = 'Robots Rule';
+                result = 'For man kind! Destroy the machine overlords!';
                 console.log(result);
-                console.log(humanResult);
-                console.log(robotResult);
+                scoreHuman = scoreHuman + 1;
             } else if ((robotResult + 2) === humanResult){
-                result = 'Humans Rule';
+                result = 'FIRST WE TAKE YOUR JOBS, THEN WE TAKE YOUR LIVES';
                 console.log(result);
-                console.log(humanResult);
-                console.log(robotResult);
+                scoreRobot = scoreRobot + 1;
             } else if (humanResult === robotResult){
-                result = 'Draw!';
+                result = 'Fairplay, cant win em all mate';
                 console.log(result);
-                console.log(humanResult);
-                console.log(robotResult);
-            }   
+            }     
     }
+    let roundLimit = 5;
+    function playRound(){
+        for (let i = 1; i <= roundLimit; i++) {
+        getHumanChoice(humanChoice);
+        getComputerChoice(robotChoice);
+        results(result);
+        finalScore(scoreBoard);
+        }
+    }
+
+
+    function finalScore(scoreBoard){
+        scoreBoard = result + " " + "Mankind " + scoreHuman.toString() + " - " + "Machines " + scoreRobot.toString();
+        alert(scoreBoard);
+    }  
         </script>
+
+        <button onclick="playRound()"> Man vs Machine. 5 rounds, one chance to save the world! </button>
     </body>
 </html>
