@@ -6,56 +6,69 @@
     </head>
     <body>
         <script>
-            const humanChoice = " ";
-            const robotChoice = 0 ;
-            let humanResult = 0 ;
-            let robotResult = 0 ;
+        let robotResult = 0 ;    
+        let humanResult = 0 ;    
+        let humanChoice = "";
+        let robotChoice = 0;
+        let firstLetter = "";    
+           
            function getComputerChoice(robotChoice){
+             
             robotChoice = Math.floor(Math.random()*3) ;
-           /*if (robotChoice == 0){
-                robotChoice = 'Rock';    
+           if (robotChoice == 0){
+                console.log('Rock')    
             } else if (robotChoice == 1){
-                robotChoice = 'Paper';                
+                console.log('Paper');                
             } else if (robotChoice == 2){
-                robotChoice = 'Scissors';                
-            }*/
+                console.log('Scissors');                
+            }
             robotResult = robotChoice;           
         }
         function getHumanChoice(humanChoice){
-            if (humanChoice.charAt(0) == 'R' , 'r'){
-                humanChoice = Number(0);
-            } else if (humanChoice.charAt(0) == 'P' , 'p'){
-                humanChoice = Number(1);
-            } else if (humanChoice.charAt(0) == 'S' , 's'){
-                humanChoice = Number(2);
+            humanChoice = humanChoice.toLowerCase();
+            firstLetter = humanChoice.charAt(0);
+            if (firstLetter == "r" ){
+                humanChoice = 0
+                console.log('Rock')
+            } else if (firstLetter == "p" ){
+                humanChoice = 1
+                console.log('Paper');
+            } else if (firstLetter == "s" ){
+                humanChoice = 2
+                console.log('Scissors');
             }
-            humanResult = humanChoice;
-            console.log(humanChoice);
+            humanResult = humanChoice
+            
         }
         let result = " "
         function results(result){
-            if (humanResult == (robotResult + 1)){
-                result = 'Humans Rule';
-            } else if (robotResult == (humanResult + 1)){
+            if ((humanResult + 1) === robotResult){
                 result = 'Robots Rule';
-            } else if (humanResult == (robotResult + 2)){
+                console.log(result);
+                console.log(humanResult);
+                console.log(robotResult);
+            } else if ((robotResult +1) === humanResult){
                 result = 'Humans Rule';
-            } else if (robotResult == (humanResult + 2)){
+                console.log(result);
+                console.log(humanResult);
+                console.log(robotResult);
+            } else if ((humanResult + 2) === robotResult){
                 result = 'Robots Rule';
-        }
-            alert(result);
-            console.log(humanResult);
-            console.log(robotResult);
+                console.log(result);
+                console.log(humanResult);
+                console.log(robotResult);
+            } else if ((robotResult + 2) === humanResult){
+                result = 'Humans Rule';
+                console.log(result);
+                console.log(humanResult);
+                console.log(robotResult);
+            } else if (humanResult === robotResult){
+                result = 'Draw!';
+                console.log(result);
+                console.log(humanResult);
+                console.log(robotResult);
+            }   
     }
-        function theDecider(){
-            getComputerChoice();
-            getHumanChoice();
-            results();
-            
-        }
         </script>
-
-        <button onclick="results()">Who wins?</button>
-
     </body>
 </html>
